@@ -1,0 +1,6 @@
+=== 0.6.0 / 2008-07-29
+
+* 1 major enhancement
+
+  * got turned out by Hoe and Mike Mondragon
+

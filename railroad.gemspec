@@ -1,11 +1,9 @@
-(in /home/mike/projects/railroad)
 Gem::Specification.new do |s|
   s.name = %q{railroad}
   s.version = "0.6.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Javier Smaldone"]
-  s.cert_chain = ["/home/mike/.gem/gem-public_cert.pem"]
   s.date = %q{2008-07-29}
   s.default_executable = %q{railroad}
   s.description = %q{}
@@ -19,7 +17,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{railroad}
   s.rubygems_version = %q{1.2.0}
-  s.signing_key = %q{/home/mike/.gem/gem-private_key.pem}
   s.summary = %q{A DOT diagram generator for Ruby on Rail applications}
 
   if s.respond_to? :specification_version then

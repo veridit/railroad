@@ -24,7 +24,7 @@ class AasmDiagram < AppDiagram
     files += Dir.glob("vendor/plugins/**/app/models/*.rb") if @options.plugins_models
     files -= @options.exclude
     files.each do |f| 
-      process_class extract_class_name(f).constantize
+      process_class extract_class_name('app/models/', f).constantize
     end
   end
   

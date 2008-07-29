@@ -78,10 +78,9 @@ class AppDiagram
   end
 
   # Extract class name from filename
-  def extract_class_name(filename)
-    #filename.split('/')[2..-1].join('/').split('.').first.camelize
-    # Fixed by patch from ticket #12742
-    File.basename(filename).chomp(".rb").camelize
+  def extract_class_name(base, filename)
+    # this is will handle directory names as namespace names
+    filename.reverse.chomp(base.reverse).reverse.chomp(".rb").camelize
   end
 
 end # class AppDiagram

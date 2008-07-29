@@ -20,7 +20,7 @@ class ControllersDiagram < AppDiagram
     files = Dir.glob("app/controllers/**/*_controller.rb") - @options.exclude
     files << 'app/controllers/application.rb'
     files.each do |f|
-      class_name = extract_class_name(f)
+      class_name = extract_class_name('app/controllers/', f)
       # ApplicationController's file is 'application.rb'
       class_name += 'Controller' if class_name == 'Application'
       process_class class_name.constantize

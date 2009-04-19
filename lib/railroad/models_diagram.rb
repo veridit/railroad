@@ -72,7 +72,7 @@ class ModelsDiagram < AppDiagram
 
 
       node_attribs = []
-      if @options.brief || current_class.abstract_class? || current_class.superclass != ActiveRecord::Base
+      if @options.brief || (current_class < ActiveRecord::Base && current_class.abstract_class?) || current_class.superclass != ActiveRecord::Base
         node_type = 'model-brief'
       else 
         node_type = 'model'
@@ -108,7 +108,11 @@ class ModelsDiagram < AppDiagram
       # Process class associations
       associations = current_class.reflect_on_all_associations
       if @options.inheritance && ! @options.transitive
-        superclass_associations = current_class.superclass.reflect_on_all_associations
+        superclass_associations = begin
+                                    current_class.superclass.reflect_on_all_associations
+                                  rescue
+                                    []
+                                  end
         
         associations = associations.select{|a| ! superclass_associations.include? a} 
         # This doesn't works!
